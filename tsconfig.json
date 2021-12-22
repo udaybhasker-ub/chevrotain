@@ -1,21 +1,27 @@
 {
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "lib",
+    "baseUrl": ".",
+    // raises too many errors to fix at once.
+    "strict": false,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "strictFunctionTypes": true
+  },
   "references": [
     {
       "path": "./packages/utils"
     },
     {
       "path": "./packages/types"
-    },
-    {
-      "path": "./packages/cst-dts-gen"
-    },
-    {
-      "path": "./packages/chevrotain"
     }
   ],
-  // needed to avoid trying to compile other .ts files in this repo
-  // and/or try to compile files included in the above references, only with incorrect settings
-  "files": [],
-  "include": [],
-  "exclude": []
+  "include": [
+    "src/**/*.ts",
+    "test/**/*.ts",
+    "api.d.ts"
+  ]
 }
